@@ -1,0 +1,27 @@
+{
+  "name": "daily-planner",
+  "version": "1.0.0",
+  "description": "Was gonna be LaTeX but HTML is easier to work with",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "print": "node main.js print"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wbjacks/daily-planner.git"
+  },
+  "author": "Will Jackson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wbjacks/daily-planner/issues"
+  },
+  "homepage": "https://github.com/wbjacks/daily-planner#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "handlebars": "^4.0.11",
+    "html-pdf": "^2.2.0",
+    "http": "0.0.0",
+    "moment": "^2.22.0"
+  }
+}

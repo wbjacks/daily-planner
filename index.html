@@ -1,0 +1,131 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"/>
+
+    <style>
+ html, body {
+    margin: 0;
+    padding: 0;
+        /*
+    font-family: 'Sackers Gothic Std';
+    font-weight: 500;
+    font-size: 7px;
+    background: rgb(241,241,241);
+        */
+    -webkit-print-color-adjust: exact;
+    box-sizing: border-box;
+    background: black;
+}
+
+.page {
+    position: relative;
+
+    /* A5 portrait */
+    height: 210mm;
+    width: 148mm;
+
+    display: inline-block;
+    background: white;
+    page-break-after: auto;
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+
+@media print {
+    body {
+      background: black;
+    }
+    .page {
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+}
+
+.page .left {
+    float: left;
+}
+
+.page .right {
+    float: left;
+}
+
+.bottom {
+    position: absolute;
+    left: 5mm;
+    right: 5mm;
+    bottom: 5mm;
+}
+
+.group {
+    margin-top: 3mm;
+}
+
+.line {
+    color: white;
+    position: relative;
+}
+
+.center {
+    text-align: center;
+}
+
+.logo {
+    position: relative;
+    width: 80%;
+    left: 10%;
+    top: 15%;
+}
+
+.calendar {
+    font-size: xx-small;
+}
+
+.calendar td {
+    padding: 4px 5px;
+}
+
+table {
+    margin-bottom: 5px;
+}
+
+hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 80%;
+}
+
+.future-planner .row {
+    height: 33%;
+    margin-top: 10px;
+}
+
+.future-planner.right table {
+    float: right;
+}
+
+.future-planner.right h3 {
+    text-align: right;
+}
+
+.one.column {
+    width: 26px;
+}
+
+.eleven.columns {
+    width: 533px;
+}
+
+.column, .columns {
+    margin-left: 0px;
+}
+
+    </style>
+</head>
+
+<body>
+    {{# each-NPairs months N="6"}}
+        {{> future-planner}}
+    {{/ each-NPairs}}
+</body>
+</html>
