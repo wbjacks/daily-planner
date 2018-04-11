@@ -1,5 +1,8 @@
 <html>
 <head>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"/>
 
     <style>
@@ -104,16 +107,24 @@ hr {
     float: right;
 }
 
-.future-planner.right h3 {
+.right h3 {
     text-align: right;
 }
 
 .one.column {
-    width: 26px;
+    width: calc(148mm / 12 * 1);
+}
+
+.ten.columns {
+    width: calc(148mm / 12 * 10);
 }
 
 .eleven.columns {
-    width: 533px;
+    width: calc(148mm / 12 * 11);
+}
+
+.twelve.columns {
+    width: 148mm;
 }
 
 .column, .columns {
@@ -127,5 +138,9 @@ hr {
     {{# each-NPairs months N="6"}}
         {{> future-planner}}
     {{/ each-NPairs}}
+
+    {{# each months }}
+        {{> monthly-planner }}
+    {{/ each }}
 </body>
 </html>

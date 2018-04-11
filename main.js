@@ -6,6 +6,8 @@ var _htmlPdf = require('html-pdf'),
 
 function init() {
     _handlebars.registerPartial('future-planner', _fs.readFileSync('./future_planner.html', 'utf8'));
+    _handlebars.registerPartial('monthly-planner', _fs.readFileSync('./monthly_planner.html', 'utf8'));
+
 
     _handlebars.registerHelper('calendar', function(month) {
         var timestamp = _moment({
@@ -19,7 +21,7 @@ function init() {
             out += "<tr>";
             for (var col = 0; col < 7; col++) {
                 out += "<td>";
-                if (printedDate > 0) {
+                if (printedDate > 0 && printedDate < timestamp.daysInMonth()) {
                     out += ++printedDate;
                 }
                 else if (timestamp.day() === col) {
@@ -48,9 +50,28 @@ function init() {
             for (var j = 0; j < N; j++) {
                 context["item"+j] = items[i+j];
             }
-            out += options.fn(context);
+            out += options.fn(Object.assign(context, this));
         }
         return out;
+    });
+
+    _handlebars.registerHelper('each-day-in-month', function(month, options) {
+        var out = "";
+        var daysInMonth = _moment({
+            year: this.year,
+            month: _moment().month(month).format("M") - 1
+        }).daysInMonth();
+        for (var i = 1; i <= daysInMonth; i++) {
+            out += options.fn(Object.assign({day: i}, this));
+        }
+        return out;
+    });
+
+    _handlebars.registerHelper('days-in-month', function(month) {
+        return _moment({
+            year: this.year,
+            month: _moment().month(month).format("M") - 1
+        }).daysInMonth();
     });
 
     return _handlebars.compile(_fs.readFileSync('./index.html', 'utf8'));
