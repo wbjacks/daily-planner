@@ -17,17 +17,17 @@
         <div class="eleven columns">
             <hr style="width: 100%; margin: 0px 0 0px 0;"/>
 
-            {{# each-day-in-month this}}
-                <span style="font-size: xx-small;">{{day}}</span>
+            {{# each-day-in-month }}
+                <span style="font-size: xx-small;">{{@day}}</span>
                 <hr style="width: 100%; margin: 0px 0 0px 0;"/>
-            {{/ each-day-in-month}}
+            {{/ each-day-in-month }}
         
         </div>
     </div>
     <div class="row">
         <div class="one column">&nbsp;</div>
         <div class="ten columns" style="padding: 30px">
-            <div style="border: 1px solid gray; height: calc(210mm - 46px - 29px - 60px - {{days-in-month this}}em);">&nbsp;</div>
+            <div class="box" style="height: calc(210mm - 46px - 29px - 60px - {{days-in-month}}em);">&nbsp;</div>
         </div>
     </div>
 </div>
@@ -35,7 +35,7 @@
 <div class="page right monthly-planner">
     <div class="row">
         <div class="eleven columns">
-            <h3 style="margin-bottom: 0">{{this}}</h3>
+            <h3 style="margin-bottom: 0">{{month}}</h3>
         </div>
         <div class="one column">&nbsp;</div>
     </div>
@@ -52,7 +52,7 @@
         <div class="eleven columns">
             <hr style="width: 100%; margin: 0px 0 0px 0;"/>
 
-            <svg height="{{days-in-month this}}em" width="400" style="position: absolute">
+            <svg height="{{days-in-month}}em" width="400" style="position: absolute">
                 <path d="M50 0 V500" fill="transparent" stroke="gray"/>
                 <path d="M70 0 V500" fill="transparent" stroke="gray"/>
                 <path d="M90 0 V500" fill="transparent" stroke="gray"/>
@@ -70,7 +70,7 @@
                 <path d="M310 0 V500" fill="transparent" stroke="black"/>
             </svg>
 
-            {{# each-day-in-month this}}
+            {{# each-day-in-month }}
                 <span style="margin-left: 310px; font-size: xx-small; opacity: 0.4;">&nbsp;
                     <i style="margin-left: 10px;" class="fas fa-poo"></i>
                     <i style="margin-left: 10px;" class="fas fa-frown"></i>

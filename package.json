@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "node main.js",
+    "debug": "node --inspect main.js",
     "print": "node main.js print"
   },
   "repository": {

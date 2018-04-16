@@ -115,6 +115,18 @@ hr {
     width: calc(148mm / 12 * 1);
 }
 
+.four.columns {
+    width: calc(148mm / 12 * 4);
+}
+
+.five.columns {
+    width: calc(148mm / 12 * 5);
+}
+
+.six.columns {
+    width: calc(148mm / 12 * 6);
+}
+
 .ten.columns {
     width: calc(148mm / 12 * 10);
 }
@@ -131,6 +143,15 @@ hr {
     margin-left: 0px;
 }
 
+.box {
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+    h3 {
+        color: red;
+    }
+
     </style>
 </head>
 
@@ -139,8 +160,15 @@ hr {
         {{> future-planner}}
     {{/ each-NPairs}}
 
-    {{# each months }}
+    {{# each-with-parent months }}
+        {{ assign "month" @it}}
+        {{ assign "year" ../year }}
+
         {{> monthly-planner }}
-    {{/ each }}
+        {{# each-week-in-month }}
+            {{ assign "week" @week}}
+            {{> weekly-planner }}
+        {{/ each-week-in-month }}
+    {{/ each-with-parent }}
 </body>
 </html>

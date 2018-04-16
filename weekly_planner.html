@@ -1,0 +1,20 @@
+<div class="page left weekly-planner">
+    <div class="row">
+        <div class="five columns" style="padding: 30px 0 30px 30px;">
+            <div class="box" style="height: calc(210mm - 60px);">&nbsp;</div>
+        </div>
+        <div class="six columns" style="padding-top: 30px">
+            {{# each-day-date-in-week }}
+                <div style="text-align: right; margin-bottom: calc(calc(calc(210mm - 60px) / 7) - 40px)">
+                    <h4>{{@dayDate}}</h4>
+                </div>
+            {{/ each-day-date-in-week }}
+        </div>
+        <div class="one column">&nbsp;</div>
+    </div>
+</div>
+
+<div class="page right weekly_planner">
+    <div class="row">
+    </div>
+</div>
