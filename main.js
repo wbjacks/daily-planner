@@ -4,10 +4,18 @@ var _htmlPdf = require('html-pdf'),
     _http = require('http'),
     _moment = require('moment');
 
+
+// Modify to configure planner
+var args = {
+    year: 2018,
+    secondaryColor: "#1a80a0" // Steel blue
+};
+
+
 function init() {
-    _handlebars.registerPartial('future-planner', _fs.readFileSync('./future_planner.html', 'utf8'));
-    _handlebars.registerPartial('monthly-planner', _fs.readFileSync('./monthly_planner.html', 'utf8'));
-    _handlebars.registerPartial('weekly-planner', _fs.readFileSync('./weekly_planner.html', 'utf8'));
+    _handlebars.registerPartial('future-planner', _fs.readFileSync('./partials/future_planner.html', 'utf8'));
+    _handlebars.registerPartial('monthly-planner', _fs.readFileSync('./partials/monthly_planner.html', 'utf8'));
+    _handlebars.registerPartial('weekly-planner', _fs.readFileSync('./partials/weekly_planner.html', 'utf8'));
 
 
     _handlebars.registerHelper('calendar', function(month) {
@@ -93,8 +101,8 @@ function init() {
             start = timestamp.startOf('month'),
             end = _moment(timestamp).endOf('month');
         while (start.isBefore(end)) {
-            // Week 1 should be in January, making up week for last week in year
-            var week = start.week() == 1 && start.month() == 11 ?  start.week() + 52 : start.week();
+            // Week 1 should only be at the beginning, rather than week 1 next year
+            var week = start.endOf('week').year() != parseInt(this.year) ?  start.week() + 52 : start.week();
             out += options.fn(this, {data: {week: week}});
             start.add(1, 'week');
 
@@ -135,10 +143,7 @@ else {
         var template = init();
 
         resp.writeHead(200, {'Content-Type': 'text/html'});
-        resp.write(template({
-            year: "2018",
-            months: _moment.months()
-        }));
+        resp.write(template(Object.assign(args, {months: _moment.months()})));
         resp.end();
     }).listen(8080);
 }

@@ -1,14 +1,12 @@
 <div class="page left monthly-planner">
     <div class="row"> <!-- Spacer -->
-        <div class="twelve columns">
-            <div style="height: 46px;">&nbsp;</div>
-        </div>
+        <div class="twelve columns">&nbsp;</div>
     </div>
 
     <div class="row">
         <div class="one column">&nbsp;</div>
         <div class="eleven columns">
-            <h6 style="margin-bottom: 5px;">Monthly Planner</h6>
+            <h6 style="margin-bottom: 5px;">Monthly Schedule</h6>
         </div>
     </div>
 
@@ -21,28 +19,23 @@
                 <span style="font-size: xx-small;">{{@day}}</span>
                 <hr style="width: 100%; margin: 0px 0 0px 0;"/>
             {{/ each-day-in-month }}
-        
+
         </div>
     </div>
     <div class="row">
-        <div class="one column">&nbsp;</div>
-        <div class="ten columns" style="padding: 30px">
-            <div class="box" style="height: calc(210mm - 46px - 29px - 60px - {{days-in-month}}em);">&nbsp;</div>
+        <div class="twelve columns" style="padding: 20px">
+            <div class="box" style="height: calc(210mm - 24px - 29px - 40px - {{days-in-month}}em);">&nbsp;</div>
         </div>
     </div>
 </div>
 
 <div class="page right monthly-planner">
     <div class="row">
-        <div class="eleven columns">
-            <h3 style="margin-bottom: 0">{{month}}</h3>
-        </div>
-        <div class="one column">&nbsp;</div>
+        <div class="twelve columns">&nbsp</div>
     </div>
-
     <div class="row">
         <div class="eleven columns">
-            <h6 style="margin: 0 0 5px 70px; float: left;">Habit Tracker</h6>
+            <h6 style="margin: 0 0 5px 50px; float: left;">Habit Tracker</h6>
             <h6 style="margin: 0 0 5px 325px;">Mood Tracker</h6>
         </div>
         <div class="one column">&nbsp;</div>
@@ -98,5 +91,14 @@
             </svg>
         </div>
         <div class="one column">&nbsp;</div>
+    </div>
+    <div class="row">
+        <div class="eleven columns" style="height: calc(210mm - 24px - 29px - {{days-in-month}}em - 100px - 24px); display: flex; align-items: flex-end; justify-content: flex-end;">
+            <h1>{{month}}</h1>
+        </div>
+        <div class="one column">&nbsp;</div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">&nbsp</div>
     </div>
 </div>
