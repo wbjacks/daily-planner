@@ -98,11 +98,6 @@ hr {
     width: 80%;
 }
 
-.future-planner .row {
-    height: 33%;
-    margin-top: 10px;
-}
-
 .future-planner.right table {
     float: right;
 }
@@ -156,9 +151,7 @@ h1, h2, h3, h4, h5, h6 {
 </head>
 
 <body>
-    {{# each-NPairs months N="6"}}
-        {{> future-planner}}
-    {{/ each-NPairs}}
+    {{> future-planner}}
 
     {{# each-with-parent months }}
         {{ assign "month" @it}}

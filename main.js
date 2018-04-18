@@ -33,7 +33,7 @@ function init() {
                 if (printedDate > 0 && printedDate < timestamp.daysInMonth()) {
                     out += ++printedDate;
                 }
-                else if (timestamp.day() === col) {
+                else if (printedDate == 0 && timestamp.day() === col) {
                     out += ++printedDate;
                 }
                 out += "</td>";
@@ -41,27 +41,6 @@ function init() {
             out += "</tr>";
         }
         return out + "</table>";
-    });
-
-    _handlebars.registerHelper('each-NPairs', function(items, options) {
-        if (!options.hash.N) {
-            throw "Argument N required to each-NPairs helper.";
-        }
-
-        var N = parseInt(options.hash.N),
-            out = "";
-        if (!N) {
-            throw "Argument N must be an int";
-        }
-
-        for (var i = 0; i < items.length; i += N) {
-            var context = {};
-            for (var j = 0; j < N; j++) {
-                context["item"+j] = items[i+j];
-            }
-            out += options.fn(context);
-        }
-        return out;
     });
 
     _handlebars.registerHelper('each-with-parent', function(items, options) {
@@ -158,7 +137,7 @@ function getWeekNums(momentObj) {
 
     // In case last week is in next year
     if( first > last) {
-        last = first + last;
+        last += 52;
     }
     return last - first + 1;
 }
