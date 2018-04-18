@@ -94,8 +94,9 @@ function init() {
 
     _handlebars.registerHelper('each-day-date-in-week', function(options) {
         var out = "";
-        var momentStart = _moment(this.year).add(this.week - 1, 'weeks'),
-            momentEnd = _moment(this.year).add(this.week, 'weeks');
+        var beginningOfYear = _moment().year(this.year).startOf('year'),
+            momentStart = _moment(beginningOfYear).add(this.week - 1, 'weeks').startOf('week'),
+            momentEnd = _moment(beginningOfYear).add(this.week, 'weeks').startOf('week');
 
         while (momentStart.isBefore(momentEnd)) {
             momentStart.add(1, 'days');
