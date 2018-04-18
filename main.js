@@ -16,6 +16,7 @@ function init() {
     _handlebars.registerPartial('future-planner', _fs.readFileSync('./partials/future_planner.html', 'utf8'));
     _handlebars.registerPartial('monthly-planner', _fs.readFileSync('./partials/monthly_planner.html', 'utf8'));
     _handlebars.registerPartial('weekly-planner', _fs.readFileSync('./partials/weekly_planner.html', 'utf8'));
+    _handlebars.registerPartial('intro', _fs.readFileSync('./partials/intro.html', 'utf8'));
 
 
     _handlebars.registerHelper('calendar', function(month) {
