@@ -156,6 +156,14 @@ h1, h2, h3, h4, h5, h6 {
     color: {{secondaryColor}};
 }
 
+.legend-item h6 {
+    margin-bottom: 0px;
+}
+
+.legend-item {
+    margin-bottom: 20px;
+}
+
     </style>
 </head>
 
@@ -173,5 +181,6 @@ h1, h2, h3, h4, h5, h6 {
             {{> weekly-planner }}
         {{/ each-week-in-month }}
     {{/ each-with-parent }}
+    {{> legend }}
 </body>
 </html>
