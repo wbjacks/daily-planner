@@ -61,6 +61,13 @@ function init() {
         this[name] = value;
     });
 
+    _handlebars.registerHelper('ifEq', function(v1, v2, options) {
+        if (v1 == v2) {
+            return options.fn(this);
+        }
+        return options.inverse(this);
+    });
+
     _handlebars.registerHelper('each-day-in-month', function(options) {
         var out = "";
         var daysInMonth = _moment({
@@ -102,7 +109,12 @@ function init() {
 
         while (momentStart.isBefore(momentEnd)) {
             momentStart.add(1, 'days');
-            out += options.fn(this, {data: {dayDate: momentStart.format('Dddd')}});
+            out += options.fn(this, {data: {
+                dayDate: momentStart.format('Dddd'),
+                day: momentStart.day(),
+                isWeekday: momentStart.day() != 6 && momentStart.day() != 0
+            
+            }});
         }
         return out;
     });
