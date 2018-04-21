@@ -1,12 +1,13 @@
 <div class="page left weekly-planner">
+    <div class="row"><div class="twelve columns">&nbsp;</div></div>
     <div class="row">
         <div class="one column">&nbsp;</div>
-        <div class="eleven columns" style="padding-top: 30px">
+        <div class="ten columns">
             {{# each-day-date-in-week }}
                 {{# if @isWeekday }}
-                    <div style="margin-bottom: calc(calc(calc(210mm - 60px) / 6) - 40px)">
+                    <div class="box" style="height: calc(calc(210mm - 48px - 50px - 120px) / 6); margin-bottom: 10px">
                         <h4>{{@dayDate}}</h4>
-                    </div>
+                    </div> 
                 {{else}}
                     {{# ifEq @day '6' }}
         </div> <!-- col -->
@@ -14,15 +15,18 @@
                     
     <div class="row">
         <div class="one column">&nbsp;</div>
-        <div class="five columns"><h4>{{@dayDate}}</h4></div>
+        <div class="five columns box" style="height: calc(calc(210mm - 48px - 50px - 120px) / 6); margin-right: 5px;">
+            <h4>{{@dayDate}}</h4>
+        </div>
                     {{else}}
-        <div class="six columns"><h4>{{@dayDate}}</h4></div>
+        <div class="five columns box" style="height: calc(calc(210mm - 48px - 50px - 120px) / 6); width: calc(calc(148mm / 12 * 5) - 5px);">
+            <h4>{{@dayDate}}</h4>
+        </div>
     </div>
                     {{/ ifEq}}
                 {{/ if }}
             {{/ each-day-date-in-week }}
-        </div>
-    </div>
+    <div class="row"><div class="twelve columns">&nbsp;</div></div>
 </div>
 
 <div class="page right weekly_planner">
