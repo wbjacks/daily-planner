@@ -156,7 +156,7 @@ hr {
     justify-content: flex-end;
 }
 
-.box h3, h4 {
+.box h3, h4, h2 {
     margin-bottom: 0px;
 }
 
@@ -178,6 +178,7 @@ h1, h2, h3, h4, h5, h6 {
 <body>
     {{> intro }}
     {{> future-planner}}
+    {{> yearly-goals}}
 
     {{# each-with-parent months }}
         {{ assign "month" @it}}
