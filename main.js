@@ -1,4 +1,6 @@
-var _htmlPdf = require('html-pdf'),
+var _htmlPdf = require('phantom-html-to-pdf')({
+        phantomPath: require("phantomjs-prebuilt").path
+    }),
     _fs = require('fs'),
     _handlebars = require('handlebars'),
     _http = require('http'),
@@ -8,7 +10,8 @@ var _htmlPdf = require('html-pdf'),
 // Modify to configure planner
 var args = {
     year: 2018,
-    secondaryColor: "#1a80a0" // Steel blue
+    secondaryColor: "#1a80a0", // Steel blue
+    months: _moment.months()
 };
 
 
@@ -130,15 +133,35 @@ function init() {
     return _handlebars.compile(_fs.readFileSync('./index.html', 'utf8'));
 }
 
-if (process.argv.length === 3 && process.argv[3] === 'print') {
+if (process.argv.length === 3 && process.argv[2] === 'print') {
+    console.log("Printing..");
+    var template = init();
 
+    _htmlPdf({
+        html: template(args),
+        allowLocalFilesAccess: true,
+        paperSize: {
+            format: 'A5'
+        }
+    }, function(err, pdf) {
+        if (err) throw err;
+
+        var output = _fs.createWriteStream('./output.pdf')
+        console.log(pdf.logs);
+        console.log(pdf.numberOfPages);
+        // since pdf.stream is a node.js stream you can use it
+        // to save the pdf to a file (like in this example) or to
+        // respond an http request.
+        pdf.stream.pipe(output);
+        output.end();
+    });
 }
 else {
     _http.createServer(function(req, resp) {
         var template = init();
 
         resp.writeHead(200, {'Content-Type': 'text/html'});
-        resp.write(template(Object.assign(args, {months: _moment.months()})));
+        resp.write(template(args));
         resp.end();
     }).listen(8080);
 }

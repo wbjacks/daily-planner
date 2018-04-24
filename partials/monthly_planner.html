@@ -1,4 +1,4 @@
-<div class="page left monthly-planner">
+<div class="page left">
     <div class="row"> <!-- Spacer -->
         <div class="twelve columns">&nbsp;</div>
     </div>
@@ -24,12 +24,12 @@
     </div>
     <div class="row">
         <div class="twelve columns" style="padding: 20px">
-            <div class="box" style="height: calc(210mm - 24px - 29px - 40px - 20px - {{days-in-month}}em);">&nbsp;</div>
+            <div class="box" style="height: calc(100% - 24px - 29px - 40px - 20px - calc({{days-in-month}} * 15px) - 3px);">&nbsp;</div>
         </div>
     </div>
 </div>
 
-<div class="page right monthly-planner">
+<div class="page right">
     <div class="row">
         <div class="twelve columns">&nbsp;</div>
     </div>
@@ -109,12 +109,11 @@
         <div class="one column">&nbsp;</div>
     </div>
     <div class="row">
-        <div class="eleven columns" style="height: calc(210mm - 24px - 29px - {{days-in-month}}em - 100px - 24px); display: flex; align-items: flex-end; justify-content: flex-end;">
+        <div class="eleven columns" style="height: calc(100% - 24px - 29px - calc({{days-in-month}} * 15px) - 100px - 24px); display: flex; align-items: flex-end; justify-content: flex-end;">
             <h1 style="margin-bottom: 0px;">{{month}}</h1>
         </div>
         <div class="one column">&nbsp;</div>
     </div>
-    <div class="row">
-        <div class="twelve columns">&nbsp</div>
-    </div>
+
+    <!-- implied <div class="row"><div class="twelve columns">&nbsp</div></div> -->
 </div>

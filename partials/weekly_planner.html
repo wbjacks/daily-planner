@@ -5,7 +5,7 @@
         <div class="ten columns">
             {{# each-day-date-in-week }}
                 {{# if @isWeekday }}
-                    <div class="box" style="height: calc(calc(210mm - 48px - 50px - 120px) / 6); margin-bottom: 10px">
+                    <div class="box" style="height: calc(calc(100% - 48px - 50px - 120px) / 6); margin-bottom: 10px">
                         <h4>{{@dayDate}}</h4>
                     </div> 
                 {{else}}
@@ -15,18 +15,18 @@
                     
     <div class="row">
         <div class="one column">&nbsp;</div>
-        <div class="five columns box" style="height: calc(calc(210mm - 48px - 50px - 120px) / 6); margin-right: 5px;">
+        <div class="five columns box" style="height: calc(calc(100% - 48px - 50px - 120px) / 6); margin-right: 5px;">
             <h4>{{@dayDate}}</h4>
         </div>
                     {{else}}
-        <div class="five columns box" style="height: calc(calc(210mm - 48px - 50px - 120px) / 6); width: calc(calc(148mm / 12 * 5) - 5px);">
+        <div class="five columns box" style="height: calc(calc(100% - 48px - 50px - 120px) / 6); width: calc(calc(148mm / 12 * 5) - 5px);">
             <h4>{{@dayDate}}</h4>
         </div>
     </div>
                     {{/ ifEq}}
                 {{/ if }}
             {{/ each-day-date-in-week }}
-    <div class="row"><div class="twelve columns">&nbsp;</div></div>
+    <!-- implied <div class="row"><div class="twelve columns">&nbsp;</div></div> -->
 </div>
 
 <div class="page right weekly_planner">
@@ -34,7 +34,7 @@
 
     <div class="row" style="margin-bottom: 10px">
         <div class="one column">&nbsp;</div>
-        <div class="ten columns box" style="height: calc(calc(210mm - 48px - 30px) / 4)">
+        <div class="ten columns box" style="height: calc(calc(100% - 48px - 60px - 20px) / 4)">
             <h3>Notes</h3>
         </div>
         <div class="one column">&nbsp;</div>
@@ -42,7 +42,7 @@
 
     <div class="row" style="margin-bottom: 10px">
         <div class="one column">&nbsp;</div>
-        <div class="ten columns box" style="height: calc(calc(210mm - 48px - 30px) / 4)">
+        <div class="ten columns box" style="height: calc(calc(100% - 48px - 60px - 20px) / 4)">
             <h3>Upcoming</h3>
         </div>
         <div class="one column">&nbsp;</div>
@@ -50,9 +50,10 @@
 
     <div class="row">
         <div class="one column">&nbsp;</div>
-        <div class="ten columns box" style="height: calc(calc(210mm - 48px - 30px) / 2)">
+        <div class="ten columns box" style="height: calc(calc(100% - 48px - 60px - 20px) / 2)">
             <h3>Tasks</h3>
         </div>
         <div class="one column">&nbsp;</div>
     </div>
+    <!-- implied <div class="row"><div class="twelve columns">&nbsp;</div></div> -->
 </div>

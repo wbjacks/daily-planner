@@ -20,6 +20,10 @@
     background: black;
 }
 
+@page {
+    size: A5 portrait;
+}
+
 .page {
     position: relative;
 
@@ -29,23 +33,28 @@
 
     display: inline-block;
     background: white;
-    page-break-after: auto;
+    page-break-after: always;
     margin-bottom: 50px;
     overflow: hidden;
 }
 
 @media print {
     body {
-      background: black;
+        background: black;
     }
     .page {
-      margin: 0;
-      height: 100%;
-      width: 100%;
+        margin: 0;
+        height: 100%;
+        width: 100%;
     }
 
     .page.ignore {
         display: none;
+    }
+
+    h6 {
+        margin: 0px;
+        font-size: 15px;
     }
 }
 
@@ -60,33 +69,6 @@
 
 .page.ignore {
     background-color: black;
-}
-
-.bottom {
-    position: absolute;
-    left: 5mm;
-    right: 5mm;
-    bottom: 5mm;
-}
-
-.group {
-    margin-top: 3mm;
-}
-
-.line {
-    color: white;
-    position: relative;
-}
-
-.center {
-    text-align: center;
-}
-
-.logo {
-    position: relative;
-    width: 80%;
-    left: 10%;
-    top: 15%;
 }
 
 .calendar {
@@ -116,7 +98,7 @@ hr {
 }
 
 .one.column {
-    width: calc(148mm / 12 * 1);
+    width: calc(100% / 12 * 1);
 }
 
 .four.columns {
@@ -162,6 +144,8 @@ hr {
 
 h1, h2, h3, h4, h5, h6 {
     color: {{secondaryColor}};
+    margin: 0px;
+    padding: 0px;
 }
 
 .legend-item h6 {
@@ -170,6 +154,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .legend-item {
     margin-bottom: 20px;
+}
+
+.row {
+    min-height: 24px;
+    padding: 0px;
+    margin: 0px;
 }
 
     </style>
