@@ -11,7 +11,8 @@ var _htmlPdf = require('phantom-html-to-pdf')({
 var args = {
     year: 2018,
     secondaryColor: "#1a80a0", // Steel blue
-    months: _moment.months()
+    //months: _moment.months()
+    months: _moment.months().slice(4, 12)
 };
 
 
